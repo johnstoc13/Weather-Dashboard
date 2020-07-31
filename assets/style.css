@@ -12,3 +12,7 @@
 .footer-font {
     font-size: 12px;
 }
+
+.center {
+    margin: 0 auto;
+}
