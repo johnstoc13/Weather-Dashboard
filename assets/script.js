@@ -18,28 +18,41 @@ $(document).ready(function () {
     $("#date5").append(moment().add(5, 'd').format("MM-DD-YYYY"));
 
     
-    // Need to create URL based on user inputs
-    const apiKey = "7de3b9a0cd9f9144a9dcc3a15797e2b5";
-    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchField + "&" + apiKey;
-    // console.log(queryURL);
-
-    // function getURL() {
-    //     let queryCity = document.searchField.text;
-    //     $("#searchBtn").
-    // }
-
-    $("#searchBtn").on("click", function(){
-        city = $(this).parent("input").val();
-        localStorage.setItem("savedCity", JSON.stringify(cityArray));
-        console.log(city);
-    })
-
-    // $.ajax({
-    //     url: queryURL,
-    //     method: "GET"
-    //   })
     
-
+    // Need to query weatherAPI using city searched
+    // Store this info in local storage
+    // Append data to document accordingly
+    // Save previously searched cities onto page as well
+    let city;
+    let lat;
+    let lon;
+    
+    $("#searchBtn").on("click", function(){
+        event.preventDefault()
+        city = $("input").val();
+        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=7de3b9a0cd9f9144a9dcc3a15797e2b5";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            console.log(JSON.stringify(response));
+            lat = response.coord.lat;
+            lon = response.coord.lon;
+            console.log(lat);
+            console.log(lon);
+            getFiveDayForecast();
+        })
+        // localStorage.setItem("savedCity", JSON.stringify());
+    });
+    
+    function getFiveDayForecast() {
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&units=imperial&appid=7de3b9a0cd9f9144a9dcc3a15797e2b5",
+            method: "GET"
+        }).then(function(response) {
+            console.log(JSON.stringify(response));
+        })
+    }
 
 
 
