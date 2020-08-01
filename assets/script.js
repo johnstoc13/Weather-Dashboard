@@ -54,14 +54,30 @@ $(document).ready(function () {
                 _this.find("#futureTemp").text(response.daily[day].temp.day);
                 _this.find("#futureHumidity").text(response.daily[day].humidity);
             })
-        })
+            // Set uvindex color based on condition
+            if (response.current.uvi < 2) {
+                $("#uvindex").attr("class", "bg-success text-white rounded px-1");
+            } else if (response.current.uvi >= 2 && response.current.uvi < 6) {
+                $("#uvindex").attr("class", "bg-warning text-body rounded px-1");
+            } else if (response.current.uvi >= 6 && response.current.uvi < 8) {
+                $("#uvindex").attr("class", "bg-orange text-dark rounded px-1");
+            } else if (response.current.uvi >= 8 && response.current.uvi < 11) {
+                $("#uvindex").attr("class", "bg-danger text-white rounded px-1");
+            } else {
+                $("#uvindex").attr("class", "bg-purple text-white rounded px-1");
+            }
+        });
     }
 
     // *****************************NEXT STUFF TO DO**********
     // Store this info in local storage
     // Save previously searched cities onto page as well
+    // Weather to load "some city" on initial load if nothing stored.
+    
 
 
+
+    let cityArray;
     // Get stored cities, if none set up localStorage and empty array
     function loadSearchHistory() {
         let storedCities = JSON.parse(localStorage.getItem("storedCities"));
@@ -74,6 +90,7 @@ $(document).ready(function () {
             cityArray = storedCities;
         }
         console.log(cityArray);
+        // cityArray.push(value, searchCity);
         displaySearchHistory();
     }
 
