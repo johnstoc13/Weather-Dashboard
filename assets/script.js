@@ -19,11 +19,6 @@ $(document).ready(function () {
     $("#date4").append(moment().add(4, 'd').format("MM-DD-YYYY"));
     $("#date5").append(moment().add(5, 'd').format("MM-DD-YYYY"));
 
-    
-    
-    // Store this info in local storage
-    // Append data to document accordingly
-    // Save previously searched cities onto page as well
     let city;
     let lat;
     let lon;
@@ -54,8 +49,12 @@ $(document).ready(function () {
             method: "GET"
         }).then(function(response) {
             console.log(response);
-            // Set current weather icon
+            // Set current weather stats and icon
             $("#wxIcon").attr("src", "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png");
+            $("#temp").text(response.current.temp);
+            $("#humidity").text(response.current.humidity);
+            $("#wind").text(response.current.wind_speed);
+            $("#uvindex").text(response.current.uvi);
             // Loop through 5 days to get forecast and display on page
             forecast.each(function (day) {
                 day++
@@ -67,10 +66,10 @@ $(document).ready(function () {
         })
     }
 
-    // Display current weather
-    // function displayCurrent() {
-    //     $("#wxIcon").attr("src", "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png");
-    // }
+
+    // *****************************NEXT STUFF TO DO**********
+    // Store this info in local storage
+    // Save previously searched cities onto page as well
 
 
 
