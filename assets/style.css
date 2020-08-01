@@ -21,3 +21,11 @@
     max-width: 30px;
     max-height: 30px;
 }
+
+.bg-orange {
+    background-color: orange;
+}
+
+.bg-purple {
+    background-color: purple;
+}
