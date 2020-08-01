@@ -48,67 +48,67 @@
         <!-- Right side containing weather forecast -->
         <section class="col-9 pt-3">
 
-            <!-- City results with today's forecast -->
+            <!-- Current forecast -->
             <div class="border border-primary pt-3 pl-3 mr-3">
                 <div class="row pl-3 pb-3 cityDateIcon">
-                    <h4 id="city">Atlanta&ThickSpace;</h4>
+                    <h4 id="city"></h4>
                     <h4 id="date"></h4>
-                    <h4 id="wxIcon"></h4>
+                    <img class="icon-size" id="wxIcon" src="" alt="Weather Icon"/>
                 </div>
                 <!-- Cited: https://www.w3schools.com/charsets/ref_utf_letterlike.asp -->
-                <p class="row pl-3">Temperature: <span id="temp"></span>&#8457</p>
-                <p class="row pl-3">Humidity: <span id="humidity"></span>%</p>
-                <p class="row pl-3">Wind Speed: <span id="wind"></span>MPH</p>
-                <p class="row pl-3">UV Index: <span id="uvindex" class="bg-danger text-white p-1">9.49</span></p>
+                <p class="row pl-3">Temperature:&ThickSpace;<span id="temp"></span>&#8457</p>
+                <p class="row pl-3">Humidity:&ThickSpace;<span id="humidity"></span>%</p>
+                <p class="row pl-3">Wind Speed:&ThickSpace;<span id="wind"></span>MPH</p>
+                <p class="row pl-3">UV Index:&ThickSpace;<span id="uvindex" class="bg-danger text-white rounded px-1"></span></p>
             </div>
 
-            <!-- City results with 5 day forecast -->
+            <!-- 5 day forecast -->
             <div class="pl-3">
                 <h4 class="row pt-3">5-Day Forecast:</h4>
                 <div class="row d-flex justify-content-between mr-3">
                     <!-- Day 1 -->
-                    <div class="card">
+                    <div class="card forecast">
                         <div class="card-body bg-primary">
                             <h6 class="card-title text-white" id=date1></h6>
-                            <i class="fas fa-sun pl-3"></i>
-                            <p class="card-text text-white">Temp: <span id=temp>86.84</span>&#8457</p>
-                            <p class="card-text text-white">Humidity: <span id=humidty>%</span></p>
+                            <img id="futureIcon" src="" alt="Weather Icon"></img>
+                            <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
+                            <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
                         </div>
                     </div>
                     <!-- Day 2 -->
-                    <div class="card">
+                    <div class="card forecast">
                         <div class="card-body bg-primary">
                             <h6 class="card-title text-white" id=date2></h6>
-                            <i class="fas fa-sun pl-3"></i>
-                            <p class="card-text text-white">Temp: <span id=temp>86.84</span>&#8457</p>
-                            <p class="card-text text-white">Humidity: <span id=humidty>%</span></p>
+                            <img id="futureIcon" src="" alt="Weather Icon"></img>
+                            <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
+                            <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
                         </div>
                     </div>
                     <!-- Day 3 -->
-                    <div class="card">
+                    <div class="card forecast">
                         <div class="card-body bg-primary">
                             <h6 class="card-title text-white" id=date3></h6>
-                            <i class="fas fa-sun pl-3"></i>
-                            <p class="card-text text-white">Temp: <span id=temp>86.84</span>&#8457</p>
-                            <p class="card-text text-white">Humidity: <span id=humidty>%</span></p>
+                            <img id="futureIcon" src="" alt="Weather Icon"></img>
+                            <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
+                            <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
                         </div>
                     </div>
                     <!-- Day 4 -->
-                    <div class="card">
+                    <div class="card forecast">
                         <div class="card-body bg-primary">
                             <h6 class="card-title text-white" id=date4></h6>
-                            <i class="fas fa-sun pl-3"></i>
-                            <p class="card-text text-white">Temp: <span id=temp>86.84</span>&#8457</p>
-                            <p class="card-text text-white">Humidity: <span id=humidty>%</span></p>
+                            <img id="futureIcon" src="" alt="Weather Icon"></img>
+                            <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
+                            <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
                         </div>
                     </div>
                     <!-- Day 5 -->
-                    <div class="card">
+                    <div class="card forecast">
                         <div class="card-body bg-primary">
                             <h6 class="card-title text-white" id=date5></h6>
-                            <i class="fas fa-sun pl-3"></i>
-                            <p class="card-text text-white">Temp: <span id=temp>86.84</span>&#8457</p>
-                            <p class="card-text text-white">Humidity: <span id=humidty>%</span></p>
+                            <img id="futureIcon" src="" alt="Weather Icon"></img>
+                            <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
+                            <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
                         </div>
                     </div>
                 </div>
