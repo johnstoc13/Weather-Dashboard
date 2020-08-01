@@ -1,15 +1,10 @@
 $(document).ready(function () {
 
     // Set variables
-    let searchField = document.querySelector("#search");
-    const searchBtn = document.querySelector("#searchBtn");
-
-    const currentTemp = document.querySelector("#temp");
-    const currentHumidity = document.querySelector("#humidity");
-    const currentWind = document.querySelector("#wind");
-    const currentUV = document.querySelector("#uvindex");
-
     const forecast = $(".forecast");
+    let city;
+    let lat;
+    let lon;
 
     // Put current day, month, and date onto page & 5 day forecast dates
     $("#date").append(moment().format("MM-DD-YYYY"));
@@ -19,11 +14,8 @@ $(document).ready(function () {
     $("#date4").append(moment().add(4, 'd').format("MM-DD-YYYY"));
     $("#date5").append(moment().add(5, 'd').format("MM-DD-YYYY"));
 
-    let city;
-    let lat;
-    let lon;
     
-    $("#searchBtn").on("click", function(){
+    $("#searchBtn").on("click", function () {
         event.preventDefault()
         // Get city for the queryURL
         city = $("input").val();
@@ -31,7 +23,7 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
             // Get lat/lon for onecall to retrieve 5 day forecast info
             lat = response.coord.lat;
             lon = response.coord.lon;
@@ -47,8 +39,7 @@ $(document).ready(function () {
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&units=imperial&appid=7de3b9a0cd9f9144a9dcc3a15797e2b5",
             method: "GET"
-        }).then(function(response) {
-            console.log(response);
+        }).then(function (response) {
             // Set current weather stats and icon
             $("#wxIcon").attr("src", "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png");
             $("#temp").text(response.current.temp);
@@ -66,14 +57,33 @@ $(document).ready(function () {
         })
     }
 
-
     // *****************************NEXT STUFF TO DO**********
     // Store this info in local storage
     // Save previously searched cities onto page as well
 
 
+    // Get stored cities, if none set up localStorage and empty array
+    function loadSearchHistory() {
+        let storedCities = JSON.parse(localStorage.getItem("storedCities"));
 
+        if (!storedCities) {
+            cityArray = [];
+            storedCities = cityArray;
+            localStorage.setItem("storedCities", JSON.stringify(cityArray));
+        } else {
+            cityArray = storedCities;
+        }
+        console.log(cityArray);
+        displaySearchHistory();
+    }
 
+    let searchCity = $(".search-city");
 
+    function displaySearchHistory() {
+        searchCity.each(function (index) {
+            $(this).text(cityArray[index]);
+        });
+    }
 
+    loadSearchHistory();
 });
