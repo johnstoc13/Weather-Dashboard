@@ -30,4 +30,4 @@ This Weather Dashboard was built using jQuery, Bootstrap and Font Awesome. I als
 <img width="1338" alt="Desktop View" src="https://user-images.githubusercontent.com/66090689/89131750-2e6d5700-d4dd-11ea-9298-5775e5c1c5fa.png">
 
 ### Mobile View
-<img width="495" alt="Mobile View" src="https://user-images.githubusercontent.com/66090689/89131751-30371a80-d4dd-11ea-80d0-c34ab18f1607.png">
+<img width="996" alt="Mobile" src="https://user-images.githubusercontent.com/66090689/89134730-6c767500-d4f5-11ea-879c-57e74c3a9fde.png">
