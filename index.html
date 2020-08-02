@@ -31,7 +31,7 @@
                         <label id="search">Search for a City:</label>
                     </div>
                     <div class="form-row pl-1">
-                        <input class="col-11 col-md-9 col-lg-9 searchField" type="ml-2 text">
+                        <input class="col-11 col-md-9 col-lg-9 searchField" type="text">
                         <button id="searchBtn"
                             class="col-1 col-md-3 col-lg-3 btn btn-primary btn-sm fas fa-search p-2 border-rounded button-border"></button>
                     </div>
@@ -46,15 +46,15 @@
                 <!-- Current forecast -->
                 <div class="border border-primary pl-3">
                     <div class="row pl-3 align-items-center cityDateIcon">
-                        <h4 id="city"></h4>
-                        <h4 id="date"></h4>
-                        <img id="wxIcon" src="" alt="Weather Icon" />
+                        <h4 class="city"></h4>
+                        <h4 class="date"></h4>
+                        <img class="wxIcon" src="#" alt="Weather Icon"/>
                     </div>
                     <!-- Cited: https://www.w3schools.com/charsets/ref_utf_letterlike.asp -->
-                    <p class="row pl-3">Temperature:&ThickSpace;<span id="temp"></span>&#8457</p>
-                    <p class="row pl-3">Humidity:&ThickSpace;<span id="humidity"></span>%</p>
-                    <p class="row pl-3">Wind Speed:&ThickSpace;<span id="wind"></span>MPH</p>
-                    <p class="row pl-3">UV Index:&ThickSpace;<span id="uvindex" class=""></span></p>
+                    <p class="row pl-3">Temperature:&ThickSpace;<span class="temp"></span>&#8457;</p>
+                    <p class="row pl-3">Humidity:&ThickSpace;<span class="humidity"></span>%</p>
+                    <p class="row pl-3">Wind Speed:&ThickSpace;<span class="wind"></span>MPH</p>
+                    <p class="row pl-3">UV Index:&ThickSpace;<span class="uvindex"></span></p>
                 </div>
 
                 <!-- 5 day forecast -->
@@ -64,46 +64,46 @@
                         <!-- Day 1 -->
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
-                                <h6 class="card-title text-white" id=date1></h6>
-                                <img id="futureIcon" src="" alt="Weather Icon"></img>
-                                <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
-                                <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
+                                <h6 class="card-title text-white date1"></h6>
+                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
+                                <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
                         </div>
                         <!-- Day 2 -->
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
-                                <h6 class="card-title text-white" id=date2></h6>
-                                <img id="futureIcon" src="" alt="Weather Icon"></img>
-                                <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
-                                <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
+                                <h6 class="card-title text-white date2"></h6>
+                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
+                                <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
                         </div>
                         <!-- Day 3 -->
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
-                                <h6 class="card-title text-white" id=date3></h6>
-                                <img id="futureIcon" src="" alt="Weather Icon"></img>
-                                <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
-                                <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
+                                <h6 class="card-title text-white date3"></h6>
+                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
+                                <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
                         </div>
                         <!-- Day 4 -->
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
-                                <h6 class="card-title text-white" id=date4></h6>
-                                <img id="futureIcon" src="" alt="Weather Icon"></img>
-                                <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
-                                <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
+                                <h6 class="card-title text-white date4"></h6>
+                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
+                                <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
                         </div>
                         <!-- Day 5 -->
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
-                                <h6 class="card-title text-white" id=date5></h6>
-                                <img id="futureIcon" src="" alt="Weather Icon"></img>
-                                <p class="card-text text-white">Temp: <span id=futureTemp></span>&#8457</p>
-                                <p class="card-text text-white">Humidity: <span id=futureHumidity></span>%</p>
+                                <h6 class="card-title text-white date5"></h6>
+                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
+                                <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
     <!-- Footer -->
     <footer class="footer-margin">
         <div class="navbar fixed-bottom navbar-dark bg-dark justify-content-center">
-            <span class="navbar-brand footer-font text-warning align-middle" href="#">Copyright &copy;2020 &ThickSpace;|&ThickSpace;
+            <span class="navbar-brand footer-font text-warning align-middle">Copyright &copy;2020 &ThickSpace;|&ThickSpace;
                 Chase Johnston</span>
             <a class="fab fa-github text-warning" href="https://github.com/johnstoc13" target="_blank"></a>
         </div>
