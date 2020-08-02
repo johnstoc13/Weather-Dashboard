@@ -25,3 +25,6 @@ The website can be reached here:  https://johnstoc13.github.io/Weather-Dashboard
 This Weather Dashboard was built using jQuery, Bootstrap and Font Awesome. I also used moment.js to get date info for the forecast. I found the API query to be challenging at first, but once I was able to access the data in console.log, I was able to get that data onto the page fairly easily. This was a fun and involved assignment that encompassed the last 6 weeks of the course in its entirety.
 
 ## Images
+
+<img width="1338" alt="Desktop View" src="https://user-images.githubusercontent.com/66090689/89131750-2e6d5700-d4dd-11ea-9298-5775e5c1c5fa.png">
+<img width="495" alt="Mobile View" src="https://user-images.githubusercontent.com/66090689/89131751-30371a80-d4dd-11ea-80d0-c34ab18f1607.png">
