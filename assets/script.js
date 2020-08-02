@@ -108,9 +108,11 @@ $(document).ready(function () {
         let storedCities = JSON.parse(localStorage.getItem("storedCities"));
         // console.log(storedCities);
         allCities.empty();
+        // let idCounter = 0
         $.each(storedCities, function (index, value) {
-            const newCityButton = $("<button>").addClass("history btn btn-block bg-white text-secondary text-left border-secondary rounded-0 py-2 mt-0");
+            const newCityButton = $("<button>").addClass("history btn btn-block bg-white text-secondary text-left border-secondary rounded-0 py-2 mt-0").attr("id", storedCities[index]);
             allCities.prepend(newCityButton.text(storedCities[index]));
+            // idCounter++;
             // console.log(storedCities[index]);
         });
     };
@@ -123,6 +125,21 @@ $(document).ready(function () {
         // pastCity = $(this).text
         // console.log($(this));
         console.log(pastCity);
+        pastCity = pastCity.getAttribute("id");
+        console.log(pastCity);
+        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + pastCity + "&units=imperial&appid=7de3b9a0cd9f9144a9dcc3a15797e2b5";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            // Get lat/lon for onecall to retrieve 5 day forecast info
+            lat = response.coord.lat;
+            lon = response.coord.lon;
+            // Label city on page
+            $("#city").text(response.name + "\xa0\xa0");
+            getFiveDayForecast();
+        })
+        
     });
 
 
@@ -132,6 +149,7 @@ $(document).ready(function () {
         pastCity = event.target;
         if (pastCity.matches("button")) {
             newcity = $("button").text();
+            console.log($("button").text());
             console.log(newcity);
             console.log(pastCity);
         }
@@ -140,19 +158,7 @@ $(document).ready(function () {
 
 
 
-        // let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + pastCity + "&units=imperial&appid=7de3b9a0cd9f9144a9dcc3a15797e2b5";
-        // $.ajax({
-        //     url: queryURL,
-        //     method: "GET"
-        // }).then(function (response) {
-        //     // Get lat/lon for onecall to retrieve 5 day forecast info
-        //     lat = response.coord.lat;
-        //     lon = response.coord.lon;
-        //     // Label city on page
-        //     $("#city").text(response.name + "\xa0\xa0");
-        //     getFiveDayForecast();
-        // })
-        
+        //
     // });
 
     // Load search history on refresh of page
