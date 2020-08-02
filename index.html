@@ -30,19 +30,13 @@
                     <label id="search">Search for a City:</label>
                 </div>
                 <div class="form-row pl-2">
-                    <input type="ml-2 text">
-                    <button id="searchBtn" class="btn btn-primary btn-sm fas fa-search p-2 border-rounded button-border"></button>
+                    <input class="searchField" type="ml-2 text">
+                    <button id="searchBtn"
+                        class="btn btn-primary btn-sm fas fa-search p-2 border-rounded button-border"></button>
                 </div>
             </form>
             <!-- Search History -->
-            <div class="col-12 mt-3 px-0">
-                <button
-                    class="search-city btn btn-block bg-white text-secondary text-left border-secondary rounded-0 py-2">Austin</button>
-                <button
-                    class="btn btn-block bg-white text-secondary text-left border-secondary border-top-0 rounded-0 py-2 mt-0">Chicago</button>
-                <button class="btn btn-block bg-white text-secondary text-left border-secondary border-top-0 rounded-0 py-2 mt-0">New
-                    York</button>
-            </div>
+            <div class="col-12 mt-3 px-0 searchedCities"></div>
         </section>
 
         <!-- Right side containing weather forecast -->
@@ -53,7 +47,7 @@
                 <div class="row pl-3 pb-3 cityDateIcon">
                     <h4 id="city"></h4>
                     <h4 id="date"></h4>
-                    <img class="icon-size" id="wxIcon" src="" alt="Weather Icon"/>
+                    <img class="icon-size" id="wxIcon" src="" alt="Weather Icon" />
                 </div>
                 <!-- Cited: https://www.w3schools.com/charsets/ref_utf_letterlike.asp -->
                 <p class="row pl-3">Temperature:&ThickSpace;<span id="temp"></span>&#8457</p>
