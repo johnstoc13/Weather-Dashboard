@@ -26,9 +26,13 @@ This Weather Dashboard was built using jQuery, Bootstrap and Font Awesome. I als
 
 ## Resources
 Open Weather Map API - https://openweathermap.org/api
+
 Bootstrap CSS Framework - https://getbootstrap.com/
+
 jQuery Javascript Library - https://jquery.com/
+
 Moment JS - https://momentjs.com/
+
 Font Awesome - https://fontawesome.com/
 
 ## Images
