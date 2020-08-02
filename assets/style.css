@@ -13,13 +13,12 @@
     font-size: 12px;
 }
 
-.center {
-    margin: 0 auto;
+.footer-margin {
+    height: 52px;
 }
 
-.icon-size {
-    max-width: 30px;
-    max-height: 30px;
+.center {
+    margin: 0 auto;
 }
 
 .bg-orange {
