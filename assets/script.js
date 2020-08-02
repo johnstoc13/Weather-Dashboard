@@ -16,7 +16,17 @@ $(document).ready(function () {
 
     // Function to run when a search is executed
     $("#searchBtn").on("click", function () {
-        event.preventDefault()
+        event.preventDefault();
+        getCurrentWeather();
+        // Run necessary functions
+        storeSearchedCities();
+        loadSearchHistory();
+        $(".searchField").val("");
+        // localStorage.setItem("savedCity", JSON.stringify());
+    });
+
+    // Get current weather
+    function getCurrentWeather() {
         // Get city for the queryURL
         city = $("input").val();
         let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=7de3b9a0cd9f9144a9dcc3a15797e2b5";
@@ -29,14 +39,9 @@ $(document).ready(function () {
             lon = response.coord.lon;
             // Label city on page
             $("#city").text(response.name + "\xa0\xa0");
-            // Run necessary functions
             getFiveDayForecast();
-            storeSearchedCities();
-            loadSearchHistory();
-            $(".searchField").val("");
         })
-        // localStorage.setItem("savedCity", JSON.stringify());
-    });
+    }
 
     // Get future forecast information
     function getFiveDayForecast() {
@@ -104,11 +109,51 @@ $(document).ready(function () {
         // console.log(storedCities);
         allCities.empty();
         $.each(storedCities, function (index, value) {
-            const newCityButton = $("<button>").addClass("btn btn-block bg-white text-secondary text-left border-secondary rounded-0 py-2 mt-0");
+            const newCityButton = $("<button>").addClass("history btn btn-block bg-white text-secondary text-left border-secondary rounded-0 py-2 mt-0");
             allCities.prepend(newCityButton.text(storedCities[index]));
             // console.log(storedCities[index]);
         });
     };
+
+    let pastCity;
+    // When past cities are clicked, load current weather and forecast
+    $(document).on("click", "button.history", function (event) {
+        event.preventDefault();
+        pastCity = event.target;
+        // pastCity = $(this).text
+        // console.log($(this));
+        console.log(pastCity);
+    });
+
+
+
+
+    $("div.searchedCities").on("click", function (event) {
+        pastCity = event.target;
+        if (pastCity.matches("button")) {
+            newcity = $("button").text();
+            console.log(newcity);
+            console.log(pastCity);
+        }
+    });
+
+
+
+
+        // let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + pastCity + "&units=imperial&appid=7de3b9a0cd9f9144a9dcc3a15797e2b5";
+        // $.ajax({
+        //     url: queryURL,
+        //     method: "GET"
+        // }).then(function (response) {
+        //     // Get lat/lon for onecall to retrieve 5 day forecast info
+        //     lat = response.coord.lat;
+        //     lon = response.coord.lon;
+        //     // Label city on page
+        //     $("#city").text(response.name + "\xa0\xa0");
+        //     getFiveDayForecast();
+        // })
+        
+    // });
 
     // Load search history on refresh of page
     loadSearchHistory();
