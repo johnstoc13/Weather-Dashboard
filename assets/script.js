@@ -14,7 +14,7 @@ $(document).ready(function () {
     $("#date4").append(moment().add(4, 'd').format("MM-DD-YYYY"));
     $("#date5").append(moment().add(5, 'd').format("MM-DD-YYYY"));
 
-    
+    // Function to run when a search is executed
     $("#searchBtn").on("click", function () {
         event.preventDefault()
         // Get city for the queryURL
@@ -29,12 +29,16 @@ $(document).ready(function () {
             lon = response.coord.lon;
             // Label city on page
             $("#city").text(response.name + "\xa0\xa0");
-            // Get 5 day forecast
+            // Run necessary functions
             getFiveDayForecast();
+            storeSearchedCities();
+            loadSearchHistory();
+            $(".searchField").val("");
         })
         // localStorage.setItem("savedCity", JSON.stringify());
     });
-    
+
+    // Get future forecast information
     function getFiveDayForecast() {
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&units=imperial&appid=7de3b9a0cd9f9144a9dcc3a15797e2b5",
@@ -69,38 +73,56 @@ $(document).ready(function () {
         });
     }
 
-    // *****************************NEXT STUFF TO DO**********
-    // Store this info in local storage
-    // Save previously searched cities onto page as well
-    // Weather to load "some city" on initial load if nothing stored.
-    
-
-
-
+    // Define empty array
     let cityArray;
-    // Get stored cities, if none set up localStorage and empty array
+
+    // Get stored cities
     function loadSearchHistory() {
         let storedCities = JSON.parse(localStorage.getItem("storedCities"));
-
+        // If nothing there, set up empty array and store
         if (!storedCities) {
             cityArray = [];
             storedCities = cityArray;
             localStorage.setItem("storedCities", JSON.stringify(cityArray));
+        // Otherwise delcare
         } else {
             cityArray = storedCities;
         }
-        console.log(cityArray);
-        // cityArray.push(value, searchCity);
-        displaySearchHistory();
+        displayHistory();
     }
 
-    let searchCity = $(".search-city");
-
-    function displaySearchHistory() {
-        searchCity.each(function (index) {
-            $(this).text(cityArray[index]);
+    // Store city searched into localStorage
+    function storeSearchedCities() {
+        cityArray.push(city);
+        localStorage.setItem("storedCities", JSON.stringify(cityArray));
+    };
+    
+    // Display search history in side bar
+    function displayHistory() {
+        const allCities = $("div.searchedCities");
+        let storedCities = JSON.parse(localStorage.getItem("storedCities"));
+        // console.log(storedCities);
+        allCities.empty();
+        $.each(storedCities, function (index, value) {
+            const newCityButton = $("<button>").addClass("btn btn-block bg-white text-secondary text-left border-secondary rounded-0 py-2 mt-0");
+            allCities.prepend(newCityButton.text(storedCities[index]));
+            // console.log(storedCities[index]);
         });
-    }
+    };
 
+    // Load search history on refresh of page
     loadSearchHistory();
+
+
+
+
+
+    // *****************************           WHAT'S LEFT...             *********************************
+    // 
+    // 
+    // 
+    // 
+    // Weather to load "some city" on initial load if nothing stored.
+    // Past cities need to reveal weather when clicked.....
+    
 });
