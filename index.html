@@ -31,7 +31,8 @@
                         <label>Search for a City:</label>
                     </div>
                     <div class="form-row pl-1">
-                        <input class="col-11 col-md-9 col-lg-9 searchField" type="text">
+                        <input class="col-11 col-md-9 col-lg-9 searchField" type="text"
+                            onkeypress="return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32 || event.charCode == 13">
                         <button id="searchBtn"
                             class="col-1 col-md-3 col-lg-3 btn btn-primary btn-sm fas fa-search p-2 border-rounded button-border"></button>
                     </div>
@@ -48,7 +49,7 @@
                     <div class="row pl-3 align-items-center cityDateIcon">
                         <h4 class="city"></h4>
                         <h4 class="date"></h4>
-                        <img class="wxIcon" src="#" alt="Weather Icon"/>
+                        <img class="wxIcon" src="#" alt="Weather Icon" />
                     </div>
                     <!-- Cited: https://www.w3schools.com/charsets/ref_utf_letterlike.asp -->
                     <p class="row pl-3">Temperature:&ThickSpace;<span class="temp"></span>&#8457;</p>
@@ -65,7 +66,7 @@
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
                                 <h6 class="card-title text-white date1"></h6>
-                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <img class="futureIcon" src="#" alt="Weather Icon" />
                                 <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
                                 <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
@@ -74,7 +75,7 @@
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
                                 <h6 class="card-title text-white date2"></h6>
-                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <img class="futureIcon" src="#" alt="Weather Icon" />
                                 <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
                                 <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
@@ -83,7 +84,7 @@
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
                                 <h6 class="card-title text-white date3"></h6>
-                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <img class="futureIcon" src="#" alt="Weather Icon" />
                                 <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
                                 <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
@@ -92,7 +93,7 @@
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
                                 <h6 class="card-title text-white date4"></h6>
-                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <img class="futureIcon" src="#" alt="Weather Icon" />
                                 <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
                                 <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
@@ -101,7 +102,7 @@
                         <div class="card forecast p-0 mb-2 text-center">
                             <div class="card-body bg-primary">
                                 <h6 class="card-title text-white date5"></h6>
-                                <img class="futureIcon" src="#" alt="Weather Icon"/>
+                                <img class="futureIcon" src="#" alt="Weather Icon" />
                                 <p class="card-text text-white">Temp: <span class=futureTemp></span>&#8457;</p>
                                 <p class="card-text text-white">Humidity: <span class=futureHumidity></span>%</p>
                             </div>
@@ -117,7 +118,8 @@
     <!-- Footer -->
     <footer class="footer-margin">
         <div class="navbar fixed-bottom navbar-dark bg-dark justify-content-center">
-            <span class="navbar-brand footer-font text-warning align-middle">Copyright &copy;2020 &ThickSpace;|&ThickSpace;
+            <span class="navbar-brand footer-font text-warning align-middle">Copyright &copy;2020
+                &ThickSpace;|&ThickSpace;
                 Chase Johnston</span>
             <a class="fab fa-github text-warning" href="https://github.com/johnstoc13" target="_blank"></a>
         </div>
