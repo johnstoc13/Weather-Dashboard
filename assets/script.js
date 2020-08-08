@@ -15,15 +15,30 @@ $(document).ready(function () {
     $(".date4").append(moment().add(4, 'd').format("MM-DD-YYYY"));
     $(".date5").append(moment().add(5, 'd').format("MM-DD-YYYY"));
 
+    // Ensure "return" keyup starts click event also
+    // Cited: https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box
+    $("#searchField").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#searchBtn").click();
+        }
+    });
+    
     // Function to run when a search is executed
-    $("#searchBtn").on("click", function () {
+    $("#searchBtn").click(function () {
+        let searchCity = $(".searchField").val();
         event.preventDefault();
-        getCurrentWeather();
-        // Run necessary functions
-        storeSearchedCities();
-        loadSearchHistory();
-        // Clear search field
-        $(".searchField").val("");
+        // If no city entered, prompt user for city
+        if (!searchCity) {
+            alert("Please select a valid city!");
+            return "";
+        } else {
+            getCurrentWeather();
+            // Run necessary functions
+            storeSearchedCities();
+            loadSearchHistory();
+            // Clear search field
+            $(".searchField").val("");
+        }
     });
 
     // Get current weather
@@ -67,15 +82,15 @@ $(document).ready(function () {
             });
             // Set uvindex color based on condition
             if (response.current.uvi < 2) {
-                $(".uvindex").attr("class", "bg-success text-white rounded px-1");
+                $(".uvindex").attr("class", "uvindex bg-success text-white rounded px-1");
             } else if (response.current.uvi >= 2 && response.current.uvi < 6) {
-                $(".uvindex").attr("class", "bg-warning text-body rounded px-1");
+                $(".uvindex").attr("class", "uvindex bg-warning text-body rounded px-1");
             } else if (response.current.uvi >= 6 && response.current.uvi < 8) {
-                $(".uvindex").attr("class", "bg-orange text-dark rounded px-1");
+                $(".uvindex").attr("class", "uvindex bg-orange text-dark rounded px-1");
             } else if (response.current.uvi >= 8 && response.current.uvi < 11) {
-                $(".uvindex").attr("class", "bg-danger text-white rounded px-1");
+                $(".uvindex").attr("class", "uvindex bg-danger text-white rounded px-1");
             } else {
-                $(".uvindex").attr("class", "bg-purple text-white rounded px-1");
+                $(".uvindex").attr("class", "uvindex bg-purple text-white rounded px-1");
             }
         });
     }
@@ -125,7 +140,4 @@ $(document).ready(function () {
 
     // Load search history on refresh of page
     loadSearchHistory();
-
-    // Weather to load "some city" on initial load if nothing stored.
-
 });
